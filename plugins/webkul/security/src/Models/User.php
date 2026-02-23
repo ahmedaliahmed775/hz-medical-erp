@@ -32,12 +32,23 @@ class User extends BaseUser implements FilamentUser
             'default_company_id',
             'resource_permission',
             'is_default',
+            'is_super_developer',
         ]);
     }
 
     protected $casts = [
         'default_company_id' => 'integer',
+        'is_super_developer' => 'boolean',
     ];
+
+    /**
+     * التحقق مما إذا كان المستخدم هو المطور الأعلى (God Mode)
+     * يُستخدم لمنح صلاحية مطلقة على النظام بالكامل
+     */
+    public function isSuperDeveloper(): bool
+    {
+        return $this->is_super_developer;
+    }
 
     public function canAccessPanel(Panel $panel): bool
     {

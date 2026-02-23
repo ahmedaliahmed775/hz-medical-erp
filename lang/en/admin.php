@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * English translations for H.Z Medical Supplies ERP
+ * Navigation labels for active modules only
+ */
+
 return [
     'navigation' => [
         'dashboard'   => 'Dashboard',
@@ -9,11 +14,7 @@ return [
         'invoice'     => 'Invoices',
         'accounting'  => 'Accounting',
         'inventory'   => 'Inventory',
-        'project'     => 'Project',
         'employee'    => 'Employees',
-        'time-off'    => 'Time Off',
-        'recruitment' => 'Recruitments',
-        'website'     => 'Website',
         'plugin'      => 'Plugins',
         'setting'     => 'Settings',
     ],

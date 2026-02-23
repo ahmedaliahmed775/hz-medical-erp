@@ -62,10 +62,15 @@ return [
     |
     */
 
+    /**
+     * المطور الأعلى - صلاحية مطلقة (God Mode)
+     * يتم تفعيل هذه الصلاحية عبر بوابة Laravel Gate
+     * للتحكم الكامل بالنظام دون قيود
+     */
     'super_admin' => [
-        'enabled'         => false,
-        'name'            => 'super_admin',
-        'define_via_gate' => false,
+        'enabled'         => true,
+        'name'            => 'super_developer',
+        'define_via_gate' => true,
         'intercept_gate'  => 'before',
     ],
 
