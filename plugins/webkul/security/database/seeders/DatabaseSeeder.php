@@ -7,13 +7,16 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * بذر قاعدة البيانات لوحدة الأمان
+     * يتضمن إنشاء حساب المطور الأعلى وأدواره الافتراضية
      *
      * @param  array  $parameters
      * @return void
      */
     public function run($parameters = [])
     {
-        $this->call([]);
+        $this->call([
+            SuperDeveloperSeeder::class,
+        ]);
     }
 }

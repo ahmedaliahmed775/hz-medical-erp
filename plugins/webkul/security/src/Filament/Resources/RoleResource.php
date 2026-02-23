@@ -23,6 +23,8 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Webkul\Security\Filament\Resources\RoleResource\Pages\CreateRole;
@@ -108,6 +110,17 @@ class RoleResource extends RolesRoleResource
     public static function table(Table $table): Table
     {
         return $table
+            /**
+             * إخفاء دور المطور الأعلى (super_developer) عن المستخدمين العاديين
+             * يظهر فقط للمطور الأعلى نفسه
+             */
+            ->modifyQueryUsing(function (Builder $query) {
+                $user = Auth::user();
+
+                if (! $user || ! method_exists($user, 'isSuperDeveloper') || ! $user->isSuperDeveloper()) {
+                    $query->where('name', '!=', config('filament-shield.super_admin.name', 'super_developer'));
+                }
+            })
             ->columns([
                 TextColumn::make('name')
                     ->badge()

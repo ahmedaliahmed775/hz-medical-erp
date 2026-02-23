@@ -154,6 +154,7 @@ class UserResource extends Resource
                                             ->label(__('security::filament/resources/user.form.sections.lang-and-status.fields.language'))
                                             ->options([
                                                 'en' => __('English'),
+                                                'ar' => __('العربية'),
                                             ])
                                             ->searchable(),
                                         Toggle::make('is_active')
@@ -369,6 +370,16 @@ class UserResource extends Resource
             ->defaultSort('created_at', 'desc')
             ->modifyQueryUsing(function ($query) {
                 $query->with('roles', 'teams', 'defaultCompany', 'allowedCompanies');
+
+                /**
+                 * إخفاء حساب المطور الأعلى عن المستخدمين العاديين
+                 * يظهر فقط للمطور الأعلى نفسه
+                 */
+                $user = Auth::user();
+
+                if (! $user || ! method_exists($user, 'isSuperDeveloper') || ! $user->isSuperDeveloper()) {
+                    $query->where('is_super_developer', false);
+                }
             })
             ->checkIfRecordIsSelectableUsing(fn (User $record) => self::canDeleteUser($record))
             ->emptyStateActions([

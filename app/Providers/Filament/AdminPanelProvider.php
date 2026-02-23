@@ -50,6 +50,10 @@ class AdminPanelProvider extends PanelProvider
                     ->label(fn () => filament()->auth()->user()?->name)
                     ->url(fn (): string => Profile::getUrl()),
             ])
+            /**
+             * مجموعات التنقل الخاصة بنظام H.Z Medical Supplies
+             * تم إزالة: المشاريع، الإجازات، التوظيف، الموقع الإلكتروني
+             */
             ->navigationGroups([
                 NavigationGroup::make()
                     ->label(__('admin.navigation.dashboard'))
@@ -73,20 +77,8 @@ class AdminPanelProvider extends PanelProvider
                     ->label(__('admin.navigation.inventory'))
                     ->icon('icon-inventories'),
                 NavigationGroup::make()
-                    ->label(__('admin.navigation.project'))
-                    ->icon('icon-projects'),
-                NavigationGroup::make()
                     ->label(__('admin.navigation.employee'))
                     ->icon('icon-employees'),
-                NavigationGroup::make()
-                    ->label(__('admin.navigation.time-off'))
-                    ->icon('icon-time-offs'),
-                NavigationGroup::make()
-                    ->label(__('admin.navigation.recruitment'))
-                    ->icon('icon-recruitments'),
-                NavigationGroup::make()
-                    ->label(__('admin.navigation.website'))
-                    ->icon('icon-website'),
                 NavigationGroup::make()
                     ->label(__('admin.navigation.plugin'))
                     ->icon('icon-plugin'),
