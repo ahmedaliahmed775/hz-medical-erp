@@ -117,7 +117,7 @@ class RoleResource extends RolesRoleResource
             ->modifyQueryUsing(function (Builder $query) {
                 $user = Auth::user();
 
-                if (! $user || ! method_exists($user, 'isSuperDeveloper') || ! $user->isSuperDeveloper()) {
+                if (! $user || ! $user->isSuperDeveloper()) {
                     $query->where('name', '!=', config('filament-shield.super_admin.name', 'super_developer'));
                 }
             })

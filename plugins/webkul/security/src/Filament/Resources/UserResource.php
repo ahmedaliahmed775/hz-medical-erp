@@ -377,7 +377,7 @@ class UserResource extends Resource
                  */
                 $user = Auth::user();
 
-                if (! $user || ! method_exists($user, 'isSuperDeveloper') || ! $user->isSuperDeveloper()) {
+                if (! $user || ! $user->isSuperDeveloper()) {
                     $query->where('is_super_developer', false);
                 }
             })

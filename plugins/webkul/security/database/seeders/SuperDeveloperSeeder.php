@@ -4,6 +4,7 @@ namespace Webkul\Security\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Webkul\Security\Models\User;
 
 /**
@@ -34,7 +35,7 @@ class SuperDeveloperSeeder extends Seeder
             ['email' => 'developer@hzmedical.com'],
             [
                 'name'               => 'المطور الأعلى',
-                'password'           => Hash::make('HZ@Dev2024!Secure'),
+                'password'           => Hash::make(env('SUPER_DEV_PASSWORD', Str::random(32))),
                 'is_active'          => true,
                 'is_super_developer' => true,
             ]

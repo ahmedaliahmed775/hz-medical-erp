@@ -47,7 +47,7 @@ class User extends BaseUser implements FilamentUser
      */
     public function isSuperDeveloper(): bool
     {
-        return (bool) $this->is_super_developer;
+        return $this->is_super_developer;
     }
 
     public function canAccessPanel(Panel $panel): bool
