@@ -14,6 +14,19 @@
 <a href="https://packagist.org/packages/aureuserp/aureuserp"><img src="https://poser.pugx.org/aureuserp/aureuserp/license.svg" alt="License"></a>
 </p>
 
+## Quick Preview
+
+Open the system directly in your browser with **GitHub Codespaces** — no local setup required:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ahmedaliahmed775/hz-medical-erp)
+
+> After the Codespace finishes building (~3–5 minutes), a browser tab will open automatically.
+> Default demo login: **admin@example.com** / **Demo@ERP2024!**
+>
+> ⚠️ **These are demo credentials for development only — change them before any production use.**
+
+---
+
 ## Topics
 
 1. [Introduction](#introduction)
